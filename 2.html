@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="Windows-1251">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="keywords" content="">
+		<title>Cube</title>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link rel="stylesheet" href="jquery-ui.css">
+		<script src="jquery-ui.js"></script>
+		<style type="text/css">
+			span{
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body style="height: 800px">
+		
+		<svg id="cube" style="height: 600px; width: 800px">
+			<g transform="scale(1)">
+			<path id="a0" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a1" stroke-width="1" fill="none" stroke="black"/>
+			<path id="a2" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a3" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a4" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a5" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a6" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a7" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a8" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a9" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a10" stroke-width="1" fill="none" stroke="black"/> 
+			<path id="a11" stroke-width="1" fill="none" stroke="black"/> 
+			  
+			</g>
+		</svg>
+		X<input type="textarea" id="rx" class="coordinates" value="0"><br>
+		Y<input type="textbox" id="ry" class="coordinates" value="0"><br>
+		Z<input type="textbox" id="rz" class="coordinates" value="0"><br>
+	
+	<script type="text/javascript" src="2.js"></script>
+	<script type="text/javascript">
+		// $( function() {
+		// 	$("#cube").draggable();
+		// });
+		// rotate(cube,rx,ry,rz);
+		// drawCube(arr);
+		go();
+		$('.coordinates').change(function() {
+			switch ($(this).attr('id')){
+				case "rx":
+					rx = Number($(this).val());
+					rotate(cube,rx,ry,rz);
+					drawCube(arr);
+					break;
+				case "ry":
+					ry = Number($(this).val());
+					rotate(cube,rx,ry,rz);
+					drawCube(arr);
+					break;
+				case "rz":
+					rz = Number($(this).val());
+					rotate(cube,rx,ry,rz);
+					drawCube(arr);
+					break;
+			}
+			
+		});
+		$("svg").click(function() {
+			if (action) {
+				stop()
+			} else {
+				go();
+			}
+		});
+	</script>
+	</body>
+</html>
